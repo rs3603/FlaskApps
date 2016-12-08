@@ -55,9 +55,9 @@ Note: The paths in the above script may change based on where you clone the repo
 
     ```
     $sudo a2enmod wsgi 
-    
     $sudo apachectl restart
     $sudo a2ensite MnistClassifierApp
+    
     $sudo service apache2 reload
     $sudo service apache2 restart
     $sudo /etc/init.d/apache2 reload
