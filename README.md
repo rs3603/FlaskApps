@@ -95,6 +95,8 @@ The model’s prediction y_{pred} is the class whose probability is maximal, spe
 
 y_pred = {argmax}_i P(Y=i|x,W,b)
 
+The algorithm is implemented using the Theano framework.
+
 # References
 1. http://amunategui.github.io/idea-to-pitch/
 2. https://github.com/lisa-lab/DeepLearningTutorials/
