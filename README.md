@@ -78,9 +78,8 @@ Logistic regression is a probabilistic, linear classifier. It is parametrized by
 
 Mathematically, the probability that an input vector x is a member of a class i, a value of a stochastic variable Y, can be written as:
 
-P(Y=i|x, W,b) = softmax_i(W x + b) 
-
-              = frac {e^{W_i x + b_i}}/{sum{e^{W_j x + b_j}}}
+P(Y=i|x, W,b) = softmax(W*x + b) 
+              = (e^{W_i x + b_i})/(sum{e^{W_j x + b_j}})
               
 The model’s prediction y_{pred} is the class whose probability is maximal, specifically:
 
