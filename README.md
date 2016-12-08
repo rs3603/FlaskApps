@@ -24,7 +24,8 @@ Typical usage instructions for testing:
    ```
    sudo nano /etc/apache2/sites-available/MnistClassifierApp.conf
    ```
-3. Now paste the following configuration code in it
+3. Now paste the following configuration code in it. 
+   Note: The paths in the above script may change based on where you clone the repository   
 
 ```
 <VirtualHost *:80>
@@ -49,7 +50,6 @@ Typical usage instructions for testing:
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
-Note: The paths in the above script may change based on where you clone the repository   
 
 4. Run the following commands <br />
 
