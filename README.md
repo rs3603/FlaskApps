@@ -16,6 +16,11 @@ Typical usage instructions for testing:
  
 # Instructions to build the code and hosting on your own server
 
+1. To install all the required packages, the install.sh script can be used 
+   
+   $sudo sh install.sh
+
+
 
     
     
