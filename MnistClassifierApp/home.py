@@ -1,6 +1,6 @@
 #sudo pip install opencv-python
 #import cv2
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from werkzeug import secure_filename
 import sys
 #sys.path.insert(0,'/home/ubuntu/FlaskApps/MnistClassifierApp/DeepLearningTutorials/code/')
@@ -36,9 +36,9 @@ def home():
 	    	b = numpy.loadtxt('/home/ubuntu/FlaskApps/MnistClassifierApp/b.txt')
 	    	p_y_given_x = T.nnet.softmax(T.dot(img_new, W) + b)
 	    	y_pred = T.argmax(p_y_given_x, axis=1)
-	    	return str(y_pred.eval())
-	    except:
-		return '400 - Bad Request. Check file type'
+		return jsonify(Dataset = 'MNIST', PredictedDigit = str(y_pred.eval()))
+	    except Exception as error:
+		return str(error) + '400 - Bad Request. Check file type'
 	else:
 	    return 'No image attribute'
     else:
