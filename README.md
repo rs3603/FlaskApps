@@ -74,4 +74,6 @@ In case of any errors, it maybe identified by looking at the error log
     ```
 
 # References
-
+1. http://amunategui.github.io/idea-to-pitch/
+2. https://github.com/lisa-lab/DeepLearningTutorials/
+3. http://yann.lecun.com/exdb/mnist/
