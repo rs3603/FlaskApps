@@ -16,11 +16,11 @@ Typical usage instructions for testing:
  
 # Instructions to build the code and hosting on your own server
 
-1. To install all the required packages, the install.sh script can be used 
+1. To install all the required packages, the install.sh script can be used <br />
    ```
    $sudo sh install.sh
    ```
-2. Open an empty script as follows
+2. Open an empty script as follows <br />
    ```
    $sudo nano /etc/apache2/sites-available/MnistClassifierApp.conf
    ```
@@ -49,12 +49,12 @@ Typical usage instructions for testing:
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
-Note: The paths in the above script may change based on where you clone the repository    
+Note: The paths in the above script may change based on where you clone the repository   
 
-4. Run the following commands
+4. Run the following commands <br />
     ```
-    $sudo a2enmod wsgi
-    $sudo apachectl restart
+    $sudo a2enmod wsgi <br />
+    $sudo apachectl restart <br />
     $sudo a2ensite MnistClassifierApp
     $sudo service apache2 reload
     $sudo service apache2 restart
