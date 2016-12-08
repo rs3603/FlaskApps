@@ -17,13 +17,13 @@ Typical usage instructions for testing:
 # Instructions to build the code and hosting on your own server
 
 1. To install all the required packages, the install.sh script can be used 
-   
+   ```
    $sudo sh install.sh
-
+   ```
 2. Open an empty script as follows
-
+   ```
    $sudo nano /etc/apache2/sites-available/MnistClassifierApp.conf
-
+   ```
 3. Now paste the following configuration code in it
 
 ```
@@ -52,22 +52,24 @@ Typical usage instructions for testing:
 Note: The paths in the above script may change based on where you clone the repository    
 
 4. Run the following commands
-    
+    ```
     $sudo a2enmod wsgi
     $sudo apachectl restart
     $sudo a2ensite MnistClassifierApp
     $sudo service apache2 reload
     $sudo service apache2 restart
     $sudo /etc/init.d/apache2 reload
-
+    ```
 The server is now up and running. The image can be POSTed to http://<your_url>/mnist/classify and a json is returned. In case of changes made to the .wsgi script or any files in the Flask app, the following commands have to be run
+    ```
     $sudo service apache2 reload
     $sudo service apache2 restart
     $sudo /etc/init.d/apache2 reload
-
+    ```
 In case of any errors, it maybe identified by looking at the error log
+    ```
     $sudo nano /var/log/apache2/error.log
-    
+    ```
 
 # References
 
