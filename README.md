@@ -73,7 +73,6 @@ In case of any errors, it maybe identified by looking at the error log
     sudo nano /var/log/apache2/error.log
     ```
 # The Model
-
 Logistic regression is a probabilistic, linear classifier. It is parametrized by a weight matrix W and a bias vector b. Classification is done by projecting an input vector onto a set of hyperplanes, each of which corresponds to a class. The distance from the input to a hyperplane reflects the probability that the input is a member of the corresponding class.
 
 Mathematically, the probability that an input vector x is a member of a class i, a value of a stochastic variable Y, can be written as:
