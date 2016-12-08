@@ -3,6 +3,13 @@
 This project allows the user to post an MNIST digit image to an URL which returns the digit class of the image. The server is currently hosted on an AWS EC2 server with the following url 
 http://54.165.174.252/mnist/classify
 
+
+There is an AWS AMI setup with all the packages installed and source code for further development.
+
+AMI Name : Raghavendra_TakeHome
+
+AMI ID : ami-351b1a22
+
 Typical usage instructions for testing:
 
     #test script
