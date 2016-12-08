@@ -92,3 +92,4 @@ y_pred = {argmax}_i P(Y=i|x,W,b)
 1. http://amunategui.github.io/idea-to-pitch/
 2. https://github.com/lisa-lab/DeepLearningTutorials/
 3. http://yann.lecun.com/exdb/mnist/
+4. http://deeplearning.net/tutorial/logreg.html
