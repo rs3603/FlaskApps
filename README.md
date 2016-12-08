@@ -13,6 +13,10 @@ Typical usage instructions for testing:
     files = {'image': open(<filename>,'rb')}
     r = requests.post(url,files=files)
     print r.content
+ 
+# Instructions to build the code and hosting on your own server
+
+
     
     
     
