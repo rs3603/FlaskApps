@@ -1,11 +1,7 @@
-#sudo pip install opencv-python
-#import cv2
 from flask import Flask, request, jsonify
 from werkzeug import secure_filename
 import sys
-#sys.path.insert(0,'/home/ubuntu/FlaskApps/MnistClassifierApp/DeepLearningTutorials/code/')
 from logistic_sgd import LogisticRegression, predict_class, sgd_optimization_mnist
-#from test import read
 import cv2
 import numpy
 import theano
@@ -28,14 +24,14 @@ def home():
 	if 'image' in request.files:
 	    f = request.files['image']
 	    try:
-	    	f.save('/home/ubuntu/FlaskApps/MnistClassifierApp/uploads/'+secure_filename(f.filename))
-	    	img = cv2.imread('/home/ubuntu/FlaskApps/MnistClassifierApp/uploads/'+secure_filename(f.filename))
-	    	img_new = cv2.cvtColor(cv2.resize(img,(28,28)),cv2.COLOR_BGR2GRAY)
-	    	img_new = img_new.flatten().reshape((1,784))
-	    	W = numpy.loadtxt('/home/ubuntu/FlaskApps/MnistClassifierApp/W.txt')
-	    	b = numpy.loadtxt('/home/ubuntu/FlaskApps/MnistClassifierApp/b.txt')
-	    	p_y_given_x = T.nnet.softmax(T.dot(img_new, W) + b)
-	    	y_pred = T.argmax(p_y_given_x, axis=1)
+	    	f.save('/home/ubuntu/FlaskApps/MnistClassifierApp/uploads/'+secure_filename(f.filename)) #saving posted images into uploads folder
+	    	img = cv2.imread('/home/ubuntu/FlaskApps/MnistClassifierApp/uploads/'+secure_filename(f.filename)) #reading the posted image
+	    	img_new = cv2.cvtColor(cv2.resize(img,(28,28)),cv2.COLOR_BGR2GRAY) #resizing image to 28 x 28 and converting image to grayscale
+	    	img_new = img_new.flatten().reshape((1,784)) #flattening the image to a 1D array
+	    	W = numpy.loadtxt('/home/ubuntu/FlaskApps/MnistClassifierApp/W.txt') #loading pretrained weights
+	    	b = numpy.loadtxt('/home/ubuntu/FlaskApps/MnistClassifierApp/b.txt') #loading pretrained biases
+	    	p_y_given_x = T.nnet.softmax(T.dot(img_new, W) + b) 
+	    	y_pred = T.argmax(p_y_given_x, axis=1) #prediction
 		return jsonify(Dataset = 'MNIST', PredictedDigit = str(y_pred.eval()))
 	    except Exception as error:
 		return str(error) + '400 - Bad Request. Check file type'
