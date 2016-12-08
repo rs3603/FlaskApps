@@ -6,6 +6,8 @@ http://54.165.174.252/mnist/classify
 Typical usage instructions for testing:
 
     #test script
+    #please install the 'requests' package before testing
+    # $sudo pip install requests 
     import requests
     url = 'http://54.165.174.252/mnist/classify'
     files = {'image': open(<filename>,'rb')}
