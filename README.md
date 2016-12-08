@@ -20,7 +20,33 @@ Typical usage instructions for testing:
    
    $sudo sh install.sh
 
+2. Open an empty script as follows
 
+   $sudo nano /etc/apache2/sites-available/MnistClassifierApp.conf
+
+3. Now paste the following configuration code in it
+
+<VirtualHost *:80>
+    ServerName 54.165.174.252
+    ServerAdmin admin@mywebsite.com
+    WSGIDaemonProcess MnistClassifierApp threads=5
+    WSGIScriptAlias / /home/ubuntu/FlaskApps/FlaskApps.wsgi
+    <Directory /home/ubuntu/FlaskApps/>
+        WSGIProcessGroup MnistClassifierApp
+        WSGIApplicationGroup %{GLOBAL}
+        Order allow,deny
+        Allow from all
+        Require all granted
+    </Directory>
+    <Directory /home/ubuntu/FlaskApps/MnistClassifierApp/static/>
+        Order allow,deny
+        Allow from all
+        Require all granted
+    </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
 
     
     
