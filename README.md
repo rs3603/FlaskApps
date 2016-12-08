@@ -72,6 +72,18 @@ In case of any errors, it maybe identified by looking at the error log
     ```
     sudo nano /var/log/apache2/error.log
     ```
+# The Model
+
+Logistic regression is a probabilistic, linear classifier. It is parametrized by a weight matrix W and a bias vector b. Classification is done by projecting an input vector onto a set of hyperplanes, each of which corresponds to a class. The distance from the input to a hyperplane reflects the probability that the input is a member of the corresponding class.
+
+Mathematically, the probability that an input vector x is a member of a class i, a value of a stochastic variable Y, can be written as:
+
+P(Y=i|x, W,b) &= softmax_i(W x + b) \\
+              &= \frac {e^{W_i x + b_i}} {\sum_j e^{W_j x + b_j}}
+              
+The model’s prediction y_{pred} is the class whose probability is maximal, specifically:
+
+y_{pred} = {\rm argmax}_i P(Y=i|x,W,b)
 
 # References
 1. http://amunategui.github.io/idea-to-pitch/
