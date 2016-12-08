@@ -62,7 +62,7 @@ Note: The paths in the above script may change based on where you clone the repo
     sudo service apache2 restart
     sudo /etc/init.d/apache2 reload
     ```
-The server is now up and running. The image can be POSTed to http://<your_url>/mnist/classify and a json is returned. In case of changes made to the .wsgi script or any files in the Flask app, the following commands have to be run
+5. The server is now up and running. The image can be POSTed to http://<your_url>/mnist/classify and a json is returned. In case of    changes made to the .wsgi script or any files in the Flask app, the following commands have to be run
     ```
     sudo service apache2 reload
     sudo service apache2 restart
