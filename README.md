@@ -26,7 +26,7 @@ Typical usage instructions for testing:
 
 3. Now paste the following configuration code in it
 
-'''
+```
 <VirtualHost *:80>
     ServerName 54.165.174.252
     ServerAdmin admin@mywebsite.com
@@ -48,7 +48,7 @@ Typical usage instructions for testing:
     LogLevel warn
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-'''
+```
     
     
     
