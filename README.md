@@ -28,7 +28,7 @@ Typical usage instructions for testing:
 
 ```
 <VirtualHost *:80>
-    ServerName 54.165.174.252
+    ServerName <your ip>
     ServerAdmin admin@mywebsite.com
     WSGIDaemonProcess MnistClassifierApp threads=5
     WSGIScriptAlias / /home/ubuntu/FlaskApps/FlaskApps.wsgi
@@ -49,6 +49,25 @@ Typical usage instructions for testing:
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
+Note: The paths in the above script may change based on where you clone the repository    
+
+4. Run the following commands
     
+    $sudo a2enmod wsgi
+    $sudo apachectl restart
+    $sudo a2ensite MnistClassifierApp
+    $sudo service apache2 reload
+    $sudo service apache2 restart
+    $sudo /etc/init.d/apache2 reload
+
+The server is now up and running. The image can be POSTed to http://<your_url>/mnist/classify and a json is returned. In case of changes made to the .wsgi script or any files in the Flask app, the following commands have to be run
+    $sudo service apache2 reload
+    $sudo service apache2 restart
+    $sudo /etc/init.d/apache2 reload
+
+In case of any errors, it maybe identified by looking at the error log
+    $sudo nano /var/log/apache2/error.log
     
-    
+
+# References
+
