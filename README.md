@@ -54,9 +54,7 @@ Note: The paths in the above script may change based on where you clone the repo
 4. Run the following commands <br />
     ```
     $sudo a2enmod wsgi 
-    
     $sudo apachectl restart
-    
     $sudo a2ensite MnistClassifierApp
     $sudo service apache2 reload
     $sudo service apache2 restart
