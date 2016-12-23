@@ -1,3 +1,8 @@
+"""
+This module saves an MNIST image posted to the <url>/mnist/classify 
+and returns the predicted digit as a JSON.
+"""
+
 from flask import Flask, request, jsonify
 from werkzeug import secure_filename
 import sys
@@ -10,17 +15,22 @@ import six.moves.cPickle as pickle
 
 app=Flask(__name__)
 
+#Specify the URL to post to when the '<url>' is accessed 
 @app.route('/',methods=['GET','POST'])
 def index():
 	return 'PLANET TAKE HOME - Please post to the URL http://54.165.174.252/mnist/classify'
 
+#Specify the URL to post to when the '<url>/mnist' is accessed 
 @app.route('/mnist',methods=['GET','POST'])
 def mnist():
         return 'PLANET TAKE HOME - Please post to the URL http://54.165.174.252/mnist/classify'
 
+#Method when '<url>/mnist/classify' is accessed
 @app.route('/mnist/classify',methods=['GET','POST'])
 def home():
     if request.method == 'POST':
+	# Posted images are saved on the server and the 
+	# digit is predicted using pretrained weights.
 	if 'image' in request.files:
 	    f = request.files['image']
 	    try:
@@ -32,7 +42,7 @@ def home():
 	    	b = numpy.loadtxt('/home/ubuntu/FlaskApps/MnistClassifierApp/b.txt') #loading pretrained biases
 	    	p_y_given_x = T.nnet.softmax(T.dot(img_new, W) + b) 
 	    	y_pred = T.argmax(p_y_given_x, axis=1) #prediction
-		return jsonify(Dataset = 'MNIST', PredictedDigit = str(y_pred.eval()))
+		return jsonify(Dataset = 'MNIST', PredictedDigit = str(y_pred.eval())) #Return the predicted digit ad a json object
 	    except Exception as error:
 		return str(error) + '400 - Bad Request. Check file type'
 	else:
